@@ -1,1 +1,1 @@
-# syntxHighlighting
+# syntaxHighlighting
