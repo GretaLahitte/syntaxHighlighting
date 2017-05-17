@@ -1,0 +1,48 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="syntax.css">
+	<script src="syntax.js"></script>
+</head>
+<body>
+	<pre><code id='colored' >
+--
+-- postgres syntax
+--
+
+CREATE TABLE testouille (
+   nom    character varying(50)  ,
+   id    bigserial  PRIMARY KEY 
+);
+
+CREATE TABLE test2 (
+   id    bigint  PRIMARY KEY ,
+   id_testouille    bigint  ,
+   const_ref    bigint  
+);
+
+CREATE TABLE ref (
+   id    bigserial  PRIMARY KEY ,
+   const    bigserial  UNIQUE 
+);
+
+
+
+ALTER TABLE test2 ADD FOREIGN KEY (id_testouille) REFERENCES testouille(id);
+ALTER TABLE test2 ADD FOREIGN KEY (const_ref) REFERENCES ref(const);
+
+
+COMMENT ON TABLE testouille IS 'un comment';
+COMMENT ON COLUMN testouille.nom IS 'le nom des adherents';
+COMMENT ON TABLE test2 IS 'table relationnnelle';
+CREATE INDEX id_testouille_test2 ON test2(id_testouille);
+CREATE INDEX const_ref_test2 ON test2(const_ref);
+CREATE INDEX const_ref ON ref(const);
+
+-- Generated with Greta SQLTool on Sun May 14 2017 22:09:45 GMT+0200 (CEST)
+-- Visit us at https://seraphita.freeboxos.fr/gretaSQLTool
+-- git: https://github.com/GretaLahitte/appDatabase.git
+</code></pre>
+</body>
+</html>

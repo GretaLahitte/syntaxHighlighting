@@ -1,0 +1,15 @@
+pre code .quoted {
+    color:rgb(255, 134, 0);
+}
+pre code .multilines{
+    color:#aaa;
+}
+pre code .sqlVar {
+    color:#5dc122;
+}
+pre code .sqlCmd {
+    color:#1f3eb9;
+}
+pre code .inline {
+    color:#FF0000;
+}
